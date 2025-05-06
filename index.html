@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyectos de Título</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --orange: #e67e22;
+      --black: #1a1a1a;
+      --gray: #f8f9fa;
+    }
+
+    body {
+      background-color: white;
+      color: var(--black);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .header {
+      background-color: white;
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      border-bottom: 2px solid var(--orange);
+    }
+
+    .logo {
+      max-height: 70px;
+      margin-bottom: 1rem;
+    }
+
+    .main-title {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: var(--black);
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .card-custom {
+      background-color: white;
+      border: 1px solid #e6e6e6;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .card-custom:hover {
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-5px);
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-subtitle {
+      font-style: italic;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .table thead {
+      background-color: var(--orange);
+      color: white;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+      padding: 2rem 0 1rem;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    /* Estilos para documentos */
+    .docs-section {
+      background-color: var(--gray);
+      padding: 2rem;
+      border-radius: 16px;
+      margin-top: 3rem;
+    }
+
+    .doc-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .doc-card:hover {
+      transform: scale(1.02);
+    }
+
+    .doc-title {
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .doc-preview img,
+    .doc-preview iframe {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <img src="https://www.udla.cl/wp-content/themes/udla/img/logo-udla.svg" alt="Logo UDLA" class="logo" />
+    <h1 class="main-title">Proyectos de Título</h1>
+    <h5 class="main-title">Escuela de Ingeniería</h5>
+    <p class="subtitle">Facultad de Economía y Negocios</p>
+    <p class="subtitle">Ingeniería Civil Industrial – Año 2025</p>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container py-5">
+
+    <!-- Grupo 9 -->
+    <div class="card card-custom mb-5">
+      <div class="card-body">
+        <h5 class="card-title">Grupo 9</h5>
+        <h5 class="card-title"><a href="http://3.140.57.67:8501">Análisis Tribológico Predictivo Muestra Aceite</a></h5>
+        <h5 class="card-title">RT Codelco</h5>
+        <p class="project-subtitle">Propuesta de Plan de Mantenimiento Predictivo para Camiones CAEX Flota Caterpillar - Komatsu - División Radomiro Tomic</p>
+        <table class="table mt-4">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>RUT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mauricio Havliczek Montoya</td>
+              <td>16.664.930-7</td>
+            </tr>
+            <tr>
+              <td>Rodrigo Macheo Lagos</td>
+              <td>15.197.390-6</td>
+            </tr>
+            <tr>
+              <td>Natalia Rojas Cortés</td>
+              <td>17.019.161-7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Sección de Documentos Dinámica -->
+    <section class="docs-section" id="docs-section">
+      <h4 class="mb-4 text-center">Documentos del Proyecto</h4>
+      <div class="row g-4" id="docs-container">
+        <!-- Aquí se insertarán los documentos dinámicamente -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    Desarrollado por los estudiantes de Ingeniería Civil Industrial – Universidad 2025
+  </footer>
+
+  <!-- Script para cargar documentos dinámicamente -->
+  <script>
+    const folderPath = "src/data/";
+    const allowedExtensions = ['.png', '.jpg', '.jpeg', '.pdf'];
+
+    // Lista fija de nombres de archivos (esto también puede venir de un JSON si prefieres)
+    const files = [
+  "Cobre_Cu_ppm_criticidad_pie.png",
+  "criticidad_minerales_panel_1.png",
+  "criticidad_minerales_panel_2_RECONSTRUIDO.png",
+  "graficos_1_Disponibilidad_Confiabilidad.pdf",
+  "graficos_2_Desgaste_Confiabilidad.pdf",
+  "graficos_3_Unidades_TipoAceite.pdf",
+  "graficos_metricas_confiabilidad.pdf",
+  "grafico_Flota_Marca_Confiabilidad_Disponibilidad_v2.pdf",
+  "Hierro_Fe_ppm_criticidad_pie.png",
+  "muestras_por_aceite_CATERPILLAR_mejorado.png",
+  "muestras_por_aceite_KOMATSU.png",
+  "muestras_por_aceite_KOMATSU_mejorado.png",
+  "niveles_agua_lineas_por_componente_y_marca.png",
+  "particulas_por_criticidad.png",
+  "punto_inflamacion_boxplot_por_aceite_y_marca.png",
+  "punto_inflamacion_vs_aceite_por_marca.png",
+  "Silicio_Si_ppm_criticidad_pie.png",
+  "situacion_actual_resumen_graficos.pdf",
+  "tan_vs_tbn_dispersion.png",
+  "viscosidad_por_criticidad.png"
+];
+
+    const container = document.getElementById("docs-container");
+
+    files.forEach(file => {
+      const ext = file.slice(file.lastIndexOf('.')).toLowerCase();
+      if (!allowedExtensions.includes(ext)) return;
+
+      const title = file.replace(/\.\w+$/, '').replace(/_/g, ' ');
+
+      const col = document.createElement("div");
+      col.className = "col-md-4";
+
+      const card = document.createElement("div");
+      card.className = "card doc-card h-100";
+
+      const body = document.createElement("div");
+      body.className = "card-body";
+
+      const heading = document.createElement("h6");
+      heading.className = "doc-title";
+      heading.textContent = title;
+
+      const previewDiv = document.createElement("div");
+      previewDiv.className = "doc-preview";
+
+      if ([".png", ".jpg", ".jpeg"].includes(ext)) {
+        const img = document.createElement("img");
+        img.src = `${folderPath}${file}`;
+        img.alt = title;
+        previewDiv.appendChild(img);
+      } else if (ext === ".pdf") {
+        const iframe = document.createElement("iframe");
+        iframe.src = `${folderPath}${file}`;
+        previewDiv.appendChild(iframe);
+      }
+
+      body.appendChild(heading);
+      body.appendChild(previewDiv);
+
+      card.appendChild(body);
+      col.appendChild(card);
+      container.appendChild(col);
+    });
+  </script>
+
+</body>
+</html>
